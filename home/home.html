@@ -1,0 +1,17 @@
+<h1>Hello {{$ctrl.name}}!</h1>
+<master-detail master-template="home/sample-templates/master-template.html"
+  detail-template="home/sample-templates/detail-template.html" items="$ctrl.items" selected="$ctrl.selected"
+  title="Master Detail Sample" id-key="id" has-pagination="true" on-selected="$ctrl.onSelected(selected)"
+  on-first-page="$ctrl.log('onFirstPage')" on-last-page="$ctrl.log('onLastPage')"
+  on-previous-page="$ctrl.log('onPreviousPage')" on-next-page="$ctrl.log('onNextPage')">
+</master-detail>
+<master-detail master-template="home/sample-templates/master-template.html" items="$ctrl.items"
+  selected="$ctrl.selected" title="Master Detail Sample" id-key="id" has-pagination="true"
+  on-selected="$ctrl.onSelected(selected)" on-first-page="$ctrl.log('onFirstPage')"
+  on-last-page="$ctrl.log('onLastPage')" on-previous-page="$ctrl.log('onPreviousPage')"
+  on-next-page="$ctrl.log('onNextPage')">
+  <detail-slot>
+    <h1>{{$ctrl.selected.firstLine}}</h1>
+    <h2>{{$ctrl.selected.secondLine}}</h2>
+  </detail-slot>
+</master-detail>

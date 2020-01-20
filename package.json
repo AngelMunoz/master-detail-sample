@@ -1,0 +1,17 @@
+{
+  "name": "angularjs-ru31xl",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@uirouter/angularjs": "1.0.24",
+    "angular": "1.7.9",
+    "angular-sanitize": "1.7.9"
+  },
+  "devDependencies": {
+    "parcel-bundler": "1.12.4",
+    "@uirouter/core": "6.0.4"
+  },
+  "scripts": {
+    "start": "parcel index.html"
+  }
+}

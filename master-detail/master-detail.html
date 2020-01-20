@@ -1,0 +1,50 @@
+<article class="master-detail">
+  <div ng-class="{
+    'master-detail__master': true,
+    'master-detail__master--unselected': !!!$masterdetail.selected
+  }">
+    <p>{{ $masterdetail.title }}</p>
+    <ng-transclude ng-transclude-slot="master">
+      <ul ng-class="{
+        'master-detail__master-items': true,
+        'master-detail__master-items--unselected': !!!$masterdetail.selected
+      }">
+        <li ng-class="{
+                'master-detail__master-item': true,
+                'master-detail__master-item--selected': $master[$masterdetail.idKey] === $masterdetail.selected[$masterdetail.idKey]
+              }" ng-repeat="$master in $masterdetail.items track by $index"
+          ng-click="$masterdetail.selectItem($master, $index)">
+          <div ng-include="$masterdetail.masterTemplate"></div>
+        </li>
+      </ul>
+    </ng-transclude>
+    <menu ng-if="$masterdetail.hasPagination">
+      <button ng-click="$masterdetail.go('first')">
+        <i class="glyphicon glyphicon-fast-backward"></i>
+      </button>
+      <button ng-click="$masterdetail.go('back')">
+        <i class="glyphicon glyphicon-chevron-left"></i>
+      </button>
+      <button ng-click="$masterdetail.go('next')">
+        <i class="glyphicon glyphicon-chevron-right"></i>
+      </button>
+      <button ng-click="$masterdetail.go('last')">
+        <i class="glyphicon glyphicon-fast-forward"></i>
+      </button>
+    </menu>
+  </div>
+  <section ng-class="{
+    'master-detail__detail': true,
+    'master-detail__detail--selected': !!$masterdetail.selected
+  }">
+    <button ng-class="{
+            'master-detail__back-btn': true,
+            'master-detail__back-btn--selected': !!$masterdetail.selected
+          }" ng-click="$masterdetail.back()">
+      <i class="glyphicon glyphicon-arrow-left"></i>
+    </button>
+    <ng-transclude ng-transclude-slot="detail">
+      <div ng-include="$masterdetail.detailTemplate"></div>
+    </ng-transclude>
+  </section>
+</article>
