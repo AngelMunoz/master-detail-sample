@@ -54,8 +54,10 @@
     }">
       {{ $masterdetail.unselectedMessage }}
     </h1>
-    <ng-transclude ng-transclude-slot="detail">
-      <div ng-include="$masterdetail.detailTemplate"></div>
-    </ng-transclude>
+    <div class="master-detail__detail-content">
+      <ng-transclude ng-transclude-slot="detail">
+        <div ng-include="$masterdetail.detailTemplate"></div>
+      </ng-transclude>
+    </div>
   </section>
 </article>

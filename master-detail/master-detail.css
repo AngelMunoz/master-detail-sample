@@ -54,9 +54,11 @@
   flex-direction: column;
   align-items: stretch;
   padding: 0 1em;
-  max-height: 75vh;
-  overflow: auto;
 }
+  .master-detail__detail-content {
+    max-height: 75vh;
+    overflow: auto;
+  }
 
   .master-detail__detail-unselected-message {
     display: none;

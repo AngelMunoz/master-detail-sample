@@ -5,3 +5,6 @@ To run
 pnpm install # or npm install
 pnpm start # or npm start
 ```
+
+![Full Screen](full-screen.png)
+![Smol Screen](smol-screen.png)
