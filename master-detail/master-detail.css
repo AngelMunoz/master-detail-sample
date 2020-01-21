@@ -9,30 +9,65 @@
   }
 
 .master-detail__master {
-  overflow: auto;
+  overflow-y: auto;
+  text-overflow: ellipsis;
+  background-color: #005dab;
+  color: white;
 }
+  .master-detail__master-title {
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    padding: 0.5em;
+  }
+
+  .master-detail__master-pagination {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: black;
+  }
 
 .master-detail__master-items {
     min-width: 285px;
     max-width: 320px;
     max-height: 50vh;
     overflow: auto;
+    background-color: white;
+    color: black;
+    padding: 0;
   }
   .master-detail__master-item {
-    height: 100px;
-    margin: 1em;
+    min-height: 50px;
+    max-height: 100px;
+    padding: 1em;
+    list-style: none;
   }
 
   .master-detail__master-item--selected {
-    border: 2px solid red;
+    background-color:#005eaba6;
   }
 
 .master-detail__detail {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  margin: 1em;
+  padding: 0 1em;
+  max-height: 75vh;
+  overflow: auto;
 }
+
+  .master-detail__detail-unselected-message {
+    display: none;
+  }
+
+  .master-detail__detail-unselected-message--unselected {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 
 
 @media all and (max-width:768px) {

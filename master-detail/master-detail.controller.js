@@ -5,14 +5,14 @@ class MasterDetailCtrl {
   }
 
   _isEmpty(obj) {
-    return Object.keys(obj).length === 0;
+    return Object.keys(obj || {}).length === 0;
   }
 
   $onInit() {
     this.idKey = this.idKey || 'id';
-    this.items = this.items || [];
     this.selected = this._isEmpty(this.selected) ? null : this.selected;
     this.$scope.$detail = this.selected;
+    this.items = this.items || [];
   }
 
   $onChanges({ selected }) {

@@ -2,7 +2,6 @@ import angular from 'angular';
 import '@uirouter/angularjs';
 
 import master from './home/sample-templates/master-template.html';
-import detail from './home/sample-templates/detail-template.html';
 
 // Import your app stylesheets
 import './style.css';
@@ -22,7 +21,6 @@ window.app = angular.module('app', requires)
   .run(function($templateCache) {
     'ngInject';
     $templateCache.put('home/sample-templates/master-template.html', master)
-    $templateCache.put('home/sample-templates/detail-template.html', detail)
   });
 
 const mainApp = document.querySelector("[main-app]");

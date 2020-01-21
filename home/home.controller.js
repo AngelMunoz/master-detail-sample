@@ -1,25 +1,29 @@
 class HomeCtrl {
-  constructor($scope) {
+  constructor($http) {
     'ngInject';
-
-    this.items = [
-      { id: 1, firstLine: 'Hola 1', secondLine: 'World 1' },
-      { id: 2, firstLine: 'Hola 2', secondLine: 'World 2' },
-      { id: 3, firstLine: 'Hola 3', secondLine: 'World 3' },
-      { id: 4, firstLine: 'Hola 4', secondLine: 'World 4' },
-      { id: 5, firstLine: 'Hola 5', secondLine: 'World 5' },
-      { id: 6, firstLine: 'Hola 6', secondLine: 'World 6' },
-      { id: 7, firstLine: 'Hola 7', secondLine: 'World 7' },
-    ];
+    this.$http = $http;
+    this.items = [];
     this.selected = null;
+  }
+  $onInit() {
+    return this._getPosts();
   }
 
   onSelected(selected) {
     this.selected = selected;
+    return this._getComments();
   }
 
   log(event) {
     console.log(event);
+  }
+
+  _getPosts() {
+    this.$http.get('https://jsonplaceholder.typicode.com/posts').then(({ data }) => this.items = data)
+  }
+  _getComments() {
+    if (!this.selected) return;
+    this.$http.get(`https://jsonplaceholder.typicode.com/posts/${this.selected.id}/comments`).then(({ data }) => this.selected.comments = data);
   }
 }
 

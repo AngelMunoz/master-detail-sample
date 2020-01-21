@@ -1,4 +1,5 @@
 import angular from 'angular';
+import './home.css';
 
 // Create the module where our functionality can attach to
 let homeModule = angular.module('home', []);

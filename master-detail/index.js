@@ -12,8 +12,9 @@ masterDetail.component('masterDetail', {
   bindings: {
     masterTemplate: '@',
     detailTemplate: '@',
-    title: '@',
     idKey: '@',
+    title: '@',
+    unselectedMessage: '@',
     items: '<',
     hasPagination: '<',
     selected: '<',
@@ -25,7 +26,8 @@ masterDetail.component('masterDetail', {
   },
   transclude: {
     master: '?masterSlot',
-    detail: '?detailSlot'
+    detail: '?detailSlot',
+    pagination: '?paginationSlot'
   }
 });
 
